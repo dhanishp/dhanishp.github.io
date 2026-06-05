@@ -120,6 +120,11 @@ h1 {
   padding-top: 0;
 }
 
+.experience-item:last-of-type {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
 .item-main {
   display: flex;
   justify-content: space-between;
