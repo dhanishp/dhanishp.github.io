@@ -1,240 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhanish Parimalakumar | Portfolio</title>
-    <style>
-        /* Color scheme */
-        :root {
-            --primary-color: #007BFF;
-            --secondary-color: #6C757D;
-            --background-color: #F8F9FA;
-            --text-color: #343A40;
-            --light-color: #FFFFFF;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Minimal portfolio for Dhanish Parimalakumar, a data science graduate focused on applied machine learning, analytics, and business-facing data products."
+    />
+    <title>Dhanish Parimalakumar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
 
-        /* General styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
+      window.addEventListener("load", () => {
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
         }
+      });
+    </script>
+  </head>
+  <body>
+    <main id="top" class="page">
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">Dhanish Parimalakumar</h1>
+        <p class="summary">
+          Data scientist focused on applied machine learning, credit/risk modeling,
+          and business-facing analytics. Graduated from The University of Texas at
+          Dallas with a B.S. in Data Science in May 2026, with work spanning production ML,
+          dealer analytics, automation, statistical modeling, and full-stack data projects.
+        </p>
+      </section>
 
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      <section id="experience" class="section" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <h2 id="experience-title">Experience</h2>
+        </div>
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid var(--light-color);
-            object-fit: cover;
-        }
+        <article class="experience-item">
+          <div class="item-main">
+            <h3>Data Scientist Intern</h3>
+            <p>GoFi / DriveTime</p>
+          </div>
+          <div class="item-meta">
+            <span>May 2025 - Present</span>
+            <span>Dallas, TX</span>
+            <span class="tag">Credit ML</span>
+          </div>
+          <p class="item-summary">
+            Built machine learning, scoring, dashboard, and dealer analytics workflows.
+          </p>
+        </article>
 
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: bold;
-        }
+        <article class="experience-item">
+          <div class="item-main">
+            <h3>Network Engineering Intern</h3>
+            <p>Verizon</p>
+          </div>
+          <div class="item-meta">
+            <span>Jun 2024 - Aug 2024</span>
+            <span>Dallas, TX</span>
+            <span class="tag">Automation</span>
+          </div>
+          <p class="item-summary">
+            Automated capital budget reporting and supported server-side reporting handoff.
+          </p>
+        </article>
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
+        <article class="experience-item">
+          <div class="item-main">
+            <h3>Undergraduate Research Assistant</h3>
+            <p>UT Dallas, VIEWS Project Lab</p>
+          </div>
+          <div class="item-meta">
+            <span>Aug 2023 - May 2024</span>
+            <span>Richardson, TX</span>
+            <span class="tag">Forecasting</span>
+          </div>
+          <p class="item-summary">
+            Developed statistical models for political violence fatality forecasting.
+          </p>
+        </article>
+      </section>
 
-        nav {
-            background-color: var(--light-color);
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <h2 id="projects-title">Projects</h2>
+        </div>
 
-        nav a {
-            color: var(--primary-color);
-            margin: 0 15px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 1em;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 100px;
-            height: 3px;
-            background-color: var(--primary-color);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-        }
-
-        .experience, .projects, .skills {
-            margin-bottom: 60px;
-        }
-
-        .experience ul, .projects ul, .skills ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .experience ul li, .projects ul li, .skills ul li {
-            background-color: var(--light-color);
-            border: 1px solid var(--secondary-color);
-            padding: 15px;
-            margin: 10px;
-            width: 300px;
-            border-radius: 5px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .experience ul li:hover, .projects ul li:hover, .skills ul li:hover {
-            transform: scale(1.05);
-        }
-
-        .contact {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            border-radius: 5px;
-        }
-
-        .contact h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .contact p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        .contact a {
-            color: var(--light-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
-            font-size: 0.9em;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img src="profile-picture.jpeg" alt="Dhanish Parimalakumar" class="profile-pic">
-        <h1>Dhanish Parimalakumar</h1>
-        <p>Data Science Student | Developer | Researcher</p>
-    </header>
-    
-    <nav>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    
-    <div class="container">
-        <section id="experience" class="experience">
-            <h2 class="section-title">Experience</h2>
-            <ul>
-                <li>
-                    <strong>Network Engineering Intern</strong><br>
-                    <em>Verizon Communications Inc. | Jun 2024 – Aug 2024</em><br>
-                    Created detailed process documentation for capital budget reporting, identified areas for efficiencies, and implemented solutions leading to a 90% reduction in manual labor and time. Began implementing a fully automated server-side solution for capital budget reporting.
-                </li>
-                <li>
-                    <strong>Assistant Researcher</strong><br>
-                    <em>Violence & Impacts Early-Warning System (VIEWS) Project Lab - UT Dallas | Aug 2023 – Present</em><br>
-                    Developed a linear regression model forecasting political conflict deaths in Africa using R. Produced a report fitting distributions to determine the optimal model basis for a spatio-temporal forecasting algorithm. Findings presented at an international conference in Berlin.
-                </li>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-title-row">
+              <h3>Automate Chess</h3>
+              <a href="https://automate-chess.onrender.com" target="_blank" rel="noreferrer">
+                Live
+              </a>
+            </div>
+            <p>
+              A browser-based chess auto-battler game where players buy pieces, build formations and
+              Stockfish simulates each match.
+            </p>
+            <ul class="project-tags" aria-label="Automate Chess technologies">
+              <li>React</li>
+              <li>FastAPI</li>
+              <li>WebSockets</li>
+              <li>Stockfish</li>
+              <li>Docker</li>
             </ul>
-        </section>
+            <a class="repo-link" href="https://github.com/dhanishp/automate-chess" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
 
-        <section id="projects" class="projects">
-            <h2 class="section-title">Projects</h2>
-            <ul>
-                <li>
-                    <strong>Automated Mortgage Lending Application - Fannie Mae Sponsor Challenge (HackUTD X)</strong><br>
-                    Developed a user-friendly UI/UX with Vue.JS, created an analytics dashboard using Chart.js, and implemented a backend in Python with an integrated chatbot to guide users through the mortgage lending process.
-                </li>
-                <li>
-                    <strong>Data Integration Profiling and Similarity Detection Algorithm (Data Integration Masters' Project)</strong><br>
-                    Designed and implemented a Java-based data integration algorithm that compared entries from two databases. The algorithm identified similarity measures and performed comprehensive data profiling, allowing for more accurate and efficient data integration processes.
-                </li>
-                <li>
-                    <strong>ESRI Geoportal & GeoNetwork Documentation/User Guide (GeoDatabases Masters' Project)</strong><br>
-                    Authored detailed technical documentation on the setup, configuration, and usage of Elasticsearch for Esri Geoportal and GeoNetwork. The documentation included step-by-step instructions, query examples, and troubleshooting tips, providing a thorough guide for users at different skill levels.
-                </li>
+          <article class="project-card">
+            <div class="project-title-row">
+              <h3>Bitcoin Price Prediction with LSTM</h3>
+              <a href="https://github.com/dhanishp/BitcoinPricePredictionLSTM/blob/main/bitcoin_time_series_modeling.pdf" target="_blank" rel="noreferrer">
+                Paper
+              </a>
+            </div>
+            <p>
+              A LSTM time-series model built from scratch for forecasting next-day Bitcoin
+              closing prices from OHLCV market data.
+            </p>
+            <ul class="project-tags" aria-label="Bitcoin Price Prediction technologies">
+              <li>Python</li>
+              <li>NumPy</li>
+              <li>LSTM</li>
+              <li>Time Series</li>
             </ul>
-        </section>
+            <a class="repo-link" href="https://github.com/dhanishp/BitcoinPricePredictionLSTM" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
 
-        <section id="skills" class="skills">
-            <h2 class="section-title">Skills</h2>
-            <ul>
-                <li>Python, R, SQL, C++, Java, JavaScript, HTML</li>
-                <li>Data Analysis & Visualization (NumPy, Pandas, Matplotlib)</li>
-                <li>Machine Learning (Linear Regression, Forecasting)</li>
-                <li>UI/UX Design with Vue.JS</li>
-                <li>Version Control (Git), UNIX, Jupyter Notebook</li>
+          <article class="project-card">
+            <div class="project-title-row">
+              <h3>Controlled Agricultural Environment Simulation</h3>
+              <span class="private-link" tabindex="0">
+                Private
+                <span class="private-tooltip">
+                  Built as a proprietary application for a corporate sponsor.
+                </span>
+              </span>
+            </div>
+            <p>
+              A greenhouse conditions simulation tool for estimating energy demand from
+              machinery, sensor data, and weather inputs.
+            </p>
+            <ul class="project-tags" aria-label="Controlled Agricultural Environment Simulation technologies">
+              <li>Python</li>
+              <li>Simulation</li>
+              <li>Sensors</li>
+              <li>Energy Modeling</li>
             </ul>
-        </section>
-        
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:dhanish.parimalakumar@utdallas.edu">dhanish.parimalakumar@utdallas.edu</a></p>
-            <p>GitHub: <a href="https://github.com/dhanishp" target="_blank">github.com/dhanishp</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/dhanish-parimalakumar-0b280527a/" target="_blank">linkedin.com/dhanish-parimalakumar</a></p>
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2024 Dhanish Parimalakumar. All rights reserved.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-title-row">
+              <h3>Ideate</h3>
+              <a href="https://ideatehackutd2025.vercel.app" target="_blank" rel="noreferrer">
+                Live
+              </a>
+            </div>
+            <p>
+              An AI product management whiteboarding tool that turns sketches and
+              prompts into structured build plans.
+            </p>
+            <ul class="project-tags" aria-label="Ideate technologies">
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Supabase</li>
+              <li>AI Workflows</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Drakatoa/HackUTD2025Ideate" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="interests-title">
+        <div class="section-heading">
+          <h2 id="interests-title">Interests</h2>
+        </div>
+        <p class="interest-copy">
+          Outside of work, you&rsquo;ll usually find me optimizing a gaming strategy,
+          chasing a cleaner lap at autocross or the track, hiking or camping when I can,
+          and window-shopping watches I can&rsquo;t justify buying (yet).
+        </p>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <p>Contact</p>
+      <nav aria-label="Contact links">
+        <a href="mailto:dhanishpari@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/dhanish-parimalakumar-0b280527a/" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <a href="https://github.com/dhanishp" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </nav>
     </footer>
-</body>
+  </body>
 </html>
