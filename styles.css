@@ -341,8 +341,47 @@ h1 {
     gap: 0.8rem;
   }
 
+  .project-card {
+    position: relative;
+  }
+
   .project-title-row {
-    flex-direction: column;
-    gap: 0.45rem;
+    display: block;
+    padding-right: 5.8rem;
+  }
+
+  .project-title-row h3 {
+    max-width: none;
+  }
+
+  .project-title-row > a,
+  .project-title-row > .private-link,
+  .repo-link {
+    position: absolute;
+    right: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.55rem;
+    padding: 0.16rem 0.5rem;
+    border: 1px solid var(--line-soft);
+    background: var(--panel-strong);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .project-title-row > a,
+  .project-title-row > .private-link {
+    top: 1.1rem;
+  }
+
+  .repo-link {
+    top: 2.95rem;
+    margin-top: 0;
+  }
+
+  .private-tooltip {
+    width: min(16rem, calc(100vw - 3rem));
   }
 }
